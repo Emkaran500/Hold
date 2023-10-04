@@ -11,6 +11,10 @@ public class Courier
 
     [MaxLength(50)]
     public string? FullName { get; set; }
+
+    [Column(name: "Phone Number")]
+    [Phone]
+    public string? PhoneNumber { get; set; }
     public int? Distance { get; set; }
 
     [Column(name: "Time Left")]
