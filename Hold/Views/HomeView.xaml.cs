@@ -14,23 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hold
+namespace Hold.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для HomeView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeView : UserControl
     {
-        private MainViewModel ViewModel { get; set; }
-
-        public MainWindow()
+        public HomeView()
         {
             InitializeComponent();
 
-            this.ViewModel = new MainViewModel();
-            this.ViewModel.ActiveViewModel = new HomeViewModel();
-
-            this.DataContext = ViewModel;
+            this.DataContext = new HomeViewModel();
         }
     }
 }

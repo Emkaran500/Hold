@@ -37,7 +37,7 @@
                 <Button/>
             </Grid>
         </Grid>
-        <ContentControl Grid.Column="1" Margin="10">
+        <ContentControl Grid.Column="1" Content="{Binding ActiveViewModel}" Margin="10">
             
         </ContentControl>
     </Grid>
