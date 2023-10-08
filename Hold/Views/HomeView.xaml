@@ -14,7 +14,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
