@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Hold.Views.ProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hold.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500" Background="AntiqueWhite">
+    <Grid Margin="50 0 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="2" FontSize="20" Content="Name:"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding ProfileName}"/>
+        <Label Grid.Column="0" Grid.Row="3" FontSize="20" Content="Phone:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="20" Text="{Binding ProfilePhoneNumber}"/>
+        <Label Grid.Column="0" Grid.Row="4" FontSize="20" Content="Balance:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" FontSize="20" Text="{Binding Balance}"/>
+        <Label Grid.Column="0" Grid.Row="5" FontSize="20" Content="Email:"/>
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="20" Text="{Binding Email}"/>
+    </Grid>
+</UserControl>

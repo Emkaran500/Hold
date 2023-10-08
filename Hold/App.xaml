@@ -9,6 +9,10 @@
         <DataTemplate DataType="{x:Type vm:HomeViewModel}">
             <v:HomeView/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type vm:ProfileViewModel}">
+            <v:ProfileView/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

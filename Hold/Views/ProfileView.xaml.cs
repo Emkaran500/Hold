@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Hold.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ViewProfile.xaml
+    /// Логика взаимодействия для ProfileView.xaml
     /// </summary>
-    public partial class ViewProfile : UserControl
+    public partial class ProfileView : UserControl
     {
-        public ViewProfile()
+        public ProfileView()
         {
             InitializeComponent();
         }

@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
 
 
-        <TextBox Background="AntiqueWhite" Grid.Row="5" Text="WELCOME" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="25"/>
-        <TextBox Background="AntiqueWhite" Grid.Row="6" Text="{Binding FullName}" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="25"/>
+        <TextBlock Background="AntiqueWhite" Grid.Row="4" Text="WELCOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <TextBlock Background="AntiqueWhite" Grid.Row="6" Text="{Binding ProfileName}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         
     </Grid>
 </UserControl>

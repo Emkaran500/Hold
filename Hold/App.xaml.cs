@@ -1,5 +1,6 @@
 ﻿using Hold.Mediator;
 using Hold.Mediator.Base;
+using Hold.Models;
 using Hold.ViewModels;
 using Hold.ViewModels.Base;
 using SimpleInjector;
@@ -38,6 +39,7 @@ namespace Hold
 
             Container.RegisterSingleton<HomeViewModel>();
             Container.RegisterSingleton<MainViewModel>();
+            Container.RegisterSingleton<User>();
 
             Container.Verify();
         }

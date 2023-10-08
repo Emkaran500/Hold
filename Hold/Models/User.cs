@@ -5,15 +5,17 @@ namespace Hold.Models;
 
 public class User
 {
+    public int Id { get; set; }
     [MaxLength(50)]
-    public string? FullName { get; set; }
+    public string? ProfileName { get; set; }
+    public string ProfilePassword { get; set; }
 
     [Column(name: "Phone Number")]
     [Phone(ErrorMessage = "Your phone number is wrong.")]
-    public string? PhoneNumber { get; set; }
+    public string? ProfilePhoneNumber { get; set; }
 
     public double? Balance { get; set; }
 
     [EmailAddress(ErrorMessage = "Your email adress is wrong.")]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 }
