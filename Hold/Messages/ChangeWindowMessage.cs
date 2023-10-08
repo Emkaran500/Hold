@@ -1,13 +1,14 @@
-﻿using Hold.ViewModels.Base;
+﻿using Hold.Messages.Base;
+using Hold.ViewModels.Base;
 
 namespace Hold.Messages;
 
-public class ChangeWindowMessage
+public class ChangeWindowMessage : IMessage
 {
     public readonly ViewModelBase DestinationViewModel;
 
     public ChangeWindowMessage(ViewModelBase destinationViewModel)
     {
-        DestinationViewModel = destinationViewModel;
+        this.DestinationViewModel = destinationViewModel;
     }
 }

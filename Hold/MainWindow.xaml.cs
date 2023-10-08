@@ -21,16 +21,9 @@ namespace Hold
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel ViewModel { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
-
-            this.ViewModel = new MainViewModel();
-            this.ViewModel.ActiveViewModel = new HomeViewModel();
-
-            this.DataContext = ViewModel;
         }
     }
 }

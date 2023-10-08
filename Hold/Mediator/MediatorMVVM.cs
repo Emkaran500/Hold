@@ -1,10 +1,11 @@
-﻿using Hold.Messages.Base;
+﻿using Hold.Mediator.Base;
+using Hold.Messages.Base;
 using System;
 using System.Collections.Generic;
 
 namespace Hold.Mediator;
 
-public class MediatorMVVM
+public class MediatorMVVM : IMessenger
 {
     private Dictionary<Type, List<Action<IMessage>>> actions;
 

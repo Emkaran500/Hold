@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hold.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="480" Background="AntiqueWhite">
+             d:DesignHeight="500" d:DesignWidth="400" Background="AntiqueWhite">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -21,9 +21,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        
-        <TextBox Background="Beige" Grid.Row="5" Text="WELCOME" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="25"/>
-        <TextBox Background="Beige" Grid.Row="6" Text="{Binding FullName}" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="25"/>
+
+        <TextBox Background="AntiqueWhite" Grid.Row="5" Text="WELCOME" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="25"/>
+        <TextBox Background="AntiqueWhite" Grid.Row="6" Text="{Binding FullName}" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="25"/>
         
     </Grid>
 </UserControl>
