@@ -8,27 +8,33 @@
              d:DesignHeight="400" d:DesignWidth="500" Background="AntiqueWhite">
     <Grid Margin="50 0 0 0">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="2" FontSize="20" Content="Name:"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding ProfileName}"/>
-        <Label Grid.Column="0" Grid.Row="3" FontSize="20" Content="Phone:"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="20" Text="{Binding ProfilePhoneNumber}"/>
-        <Label Grid.Column="0" Grid.Row="4" FontSize="20" Content="Balance:"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" FontSize="20" Text="{Binding Balance}"/>
-        <Label Grid.Column="0" Grid.Row="5" FontSize="20" Content="Email:"/>
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="20" Text="{Binding Email}"/>
+        <ListView Grid.Row="1" ItemsSource="{Binding Users}" Background="AntiqueWhite" IsEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <UniformGrid Columns="2">
+                        <TextBlock FontSize="22" Text="Name:" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding ProfileName}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="Phone:" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding ProfilePhoneNumber}" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="Balance($):" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Balance}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="Email:" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Email}" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="Country:" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Country}" Background="AliceBlue"/>
+                    </UniformGrid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </UserControl>

@@ -1,6 +1,8 @@
 ﻿using Hold.Mediator;
 using Hold.Mediator.Base;
 using Hold.Models;
+using Hold.Repositories;
+using Hold.Repositories.Base;
 using Hold.ViewModels;
 using Hold.ViewModels.Base;
 using SimpleInjector;
@@ -28,6 +30,8 @@ namespace Hold
             var mainViewModel = Container.GetInstance<MainViewModel>();
             mainViewModel.ActiveViewModel = Container.GetInstance<T>();
 
+            
+
             mainView.DataContext = mainViewModel;
 
             mainView.ShowDialog();
@@ -35,11 +39,15 @@ namespace Hold
 
         private void RegisterContainer()
         {
-            Container.RegisterSingleton<IMessenger, MediatorMVVM>();
-
-            Container.RegisterSingleton<HomeViewModel>();
-            Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<User>();
+            Container.RegisterSingleton<IMessenger, MediatorMVVM>();
+            Container.RegisterSingleton<IUserRepository, UserEFRepository>();
+
+            Container.RegisterSingleton<MainViewModel>();
+            Container.RegisterSingleton<HomeViewModel>();
+            Container.RegisterSingleton<ProfileViewModel>();
+
+            
 
             Container.Verify();
         }

@@ -1,4 +1,4 @@
-﻿using Hold.HoldDbContexts;
+﻿using Hold.Data;
 using Hold.Models;
 using Hold.Repositories.Base;
 using System.Linq;
@@ -32,7 +32,7 @@ public class UserEFRepository : IUserRepository
 
     public User GetUserById(int id)
     {
-        return this.dbContext.Users.FirstOrDefault(u => u.Id == id, new NullUser());
+        return this.dbContext.Users.FirstOrDefault(u => u.Id == id);
     }
 
     public void Update(int id, User? user)

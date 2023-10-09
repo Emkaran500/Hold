@@ -1,4 +1,5 @@
-﻿using Hold.Mediator.Base;
+﻿using Hold.Commands.Base;
+using Hold.Mediator.Base;
 using Hold.Messages;
 using Hold.ViewModels.Base;
 
@@ -11,7 +12,7 @@ public class MainViewModel : ViewModelBase
     public ViewModelBase ActiveViewModel
     {
         get => activeViewModel;
-        set => base.PropertyChangeMethod(out activeViewModel, value);
+        set => base.PropertyChangeMethod(out this.activeViewModel, value);
     }
 
     private readonly IMessenger mediator;
@@ -31,4 +32,24 @@ public class MainViewModel : ViewModelBase
             }
         );
     }
+
+    private CommandBase homeCommand;
+    public CommandBase HomeCommand => this.homeCommand ??= new CommandBase
+        (
+            execute: () => 
+            {
+                this.ActiveViewModel = App.Container.GetInstance<HomeViewModel>();
+            },
+            canExecute: () => true
+        );
+
+    private CommandBase profileCommand;
+    public CommandBase ProfileCommand => this.profileCommand ??= new CommandBase
+        (
+            execute: () =>
+            {
+                this.ActiveViewModel = App.Container.GetInstance<ProfileViewModel>();
+            },
+            canExecute: () => true
+        );
 }
