@@ -5,8 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hold.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="400" d:DesignWidth="500" DataContext="{Binding InnerActiveViewModel}">
     <Grid>
+        <Grid.Resources>
+            <ImageBrush x:Key="AddMcDonaldsButtonImageBrush" ImageSource="\Textures\mcdonalds_texture.png"/>
+            <ImageBrush x:Key="AddKfcButtonImageBrush" ImageSource="\Textures\kfc_texture.png"/>
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" ItemsSource="{Binding Restaurants}" Background="AntiqueWhite">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding RestaurantCommand}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ContentControl Grid.Column="1" Content="{Binding InnerActiveViewModel}" Margin="10">
             
+        </ContentControl>
     </Grid>
 </UserControl>

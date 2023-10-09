@@ -52,4 +52,13 @@ public class MainViewModel : ViewModelBase
             },
             canExecute: () => true
         );
+    private CommandBase makeOrderCommand;
+    public CommandBase MakeOrderCommand => this.makeOrderCommand ??= new CommandBase
+        (
+            execute: () =>
+            {
+                this.ActiveViewModel = App.Container.GetInstance<MakeOrderViewModel>();
+            },
+            canExecute: () => true
+        );
 }

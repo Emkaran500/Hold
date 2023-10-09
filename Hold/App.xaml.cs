@@ -30,8 +30,6 @@ namespace Hold
             var mainViewModel = Container.GetInstance<MainViewModel>();
             mainViewModel.ActiveViewModel = Container.GetInstance<T>();
 
-            
-
             mainView.DataContext = mainViewModel;
 
             mainView.ShowDialog();
@@ -46,8 +44,8 @@ namespace Hold
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();
             Container.RegisterSingleton<ProfileViewModel>();
-
-            
+            Container.RegisterSingleton<PossibleOrdersViewModel>();
+            Container.RegisterSingleton<MakeOrderViewModel>();
 
             Container.Verify();
         }
