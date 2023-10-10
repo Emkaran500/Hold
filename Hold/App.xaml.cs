@@ -7,6 +7,10 @@ using Hold.ViewModels;
 using Hold.ViewModels.Base;
 using SimpleInjector;
 using System.Windows;
+using System.Linq;
+using Microsoft.Data.SqlClient;
+using Dapper;
+using System.IO;
 
 namespace Hold
 {
@@ -33,6 +37,11 @@ namespace Hold
 
             mainView.DataContext = mainViewModel;
 
+            SqlConnection sqlConnection = new SqlConnection("Server=localhost;Database=HoldDb;User Id=myUsername;Password=myPassword;TrustServerCertificate=True;");
+            sqlConnection.Open();
+            string sql = File.ReadAllText("\\Sql\\sql.sql");
+            sqlConnection.Execute(sql);
+
             mainView.ShowDialog();
         }
 
@@ -44,12 +53,14 @@ namespace Hold
             Container.RegisterSingleton<IUserRepository, UserEFRepository>();
             Container.RegisterSingleton<IRestaurantRepository, RestaurantEFRepository>();
             Container.RegisterSingleton<IProductRepository, ProductEFRepository>();
+            Container.RegisterSingleton<IOrderRepository, OrderEFRepository>();
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();
             Container.RegisterSingleton<ProfileViewModel>();
             Container.RegisterSingleton<MakeOrderViewModel>();
             Container.RegisterSingleton<BasketViewModel>();
+            Container.RegisterSingleton<YourOrdersViewModel>();
 
             Container.Verify();
         }

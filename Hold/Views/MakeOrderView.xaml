@@ -36,6 +36,10 @@
 
 
     <Grid>
+        <Grid.Resources>
+            <ImageBrush x:Key="AddNextButtonImageBrush" ImageSource="/Textures/next_texture.png" Stretch="UniformToFill"/>
+        </Grid.Resources>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5*"/>
@@ -72,7 +76,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="4" Margin="30" Command="{Binding RestaurantCommand}"/>
+                <Button Grid.Column="4" Background="{StaticResource AddNextButtonImageBrush}" Style="{StaticResource NoAnimationButtonStyle}" Margin="30" Command="{Binding RestaurantCommand}"/>
             </Grid>
             
             <ItemsControl Grid.Row="1" ItemsSource="{Binding Products}">

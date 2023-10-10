@@ -5,8 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hold.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="400" d:DesignWidth="500">
     <Grid>
-            
+        <ListView Grid.Row="1" ItemsSource="{Binding Orders}" Background="AntiqueWhite" IsEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <UniformGrid Columns="2">
+                        <TextBlock FontSize="22" Text="Name:" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding ProfileName}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="Phone:" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding ProfilePhoneNumber}" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="Balance($):" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Balance}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="Email:" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Email}" Background="LightSkyBlue"/>
+                        <TextBlock FontSize="22" Text="Country:" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Country}" Background="AliceBlue"/>
+                    </UniformGrid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

@@ -72,4 +72,13 @@ public class MainViewModel : ViewModelBase
             },
             canExecute: () => true
         );
+    private CommandBase orderHistoryCommand;
+    public CommandBase OrderHistoryCommand => this.orderHistoryCommand ??= new CommandBase
+        (
+            execute: () =>
+            {
+                this.ActiveViewModel = App.Container.GetInstance<YourOrdersViewModel>();
+            },
+            canExecute: () => true
+        );
 }

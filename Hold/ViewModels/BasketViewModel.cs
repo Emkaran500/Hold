@@ -1,5 +1,6 @@
 ﻿using Hold.Commands.Base;
 using Hold.Models;
+using Hold.Repositories;
 using Hold.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -53,7 +54,14 @@ public class BasketViewModel : ViewModelBase
                 }
                 else
                 {
+                    OrderEFRepository orderRepository = new OrderEFRepository();
+                    orderRepository.Add(new Order()
+                    {
+                        Product = this.Products,
+                        Sum = sum
+                    });
                     App.Container.GetInstance<User>().Balance -= sum;
+                    MessageBox.Show("Transaction Successfull!");
                 }
             },
             canExecute: () => true

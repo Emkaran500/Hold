@@ -10,11 +10,14 @@
   <ItemGroup>
     <None Remove="Textures\basket_texture.png" />
     <None Remove="Textures\burger_texture.png" />
+    <None Remove="Textures\buy_texture.png" />
+    <None Remove="Textures\chicken_texture.png" />
     <None Remove="Textures\delete_texture.png" />
     <None Remove="Textures\home_texture.png" />
     <None Remove="Textures\kfc_texture.png" />
     <None Remove="Textures\make_order_texture.png" />
     <None Remove="Textures\mcdonalds_texture.png" />
+    <None Remove="Textures\next_texture.png" />
     <None Remove="Textures\order_history_texture.png" />
     <None Remove="Textures\profile_texture.png" />
     <None Remove="Textures\refresh_texture.png" />
@@ -38,11 +41,14 @@
   <ItemGroup>
     <Resource Include="Textures\basket_texture.png" />
     <Resource Include="Textures\burger_texture.png" />
+    <Resource Include="Textures\buy_texture.png" />
+    <Resource Include="Textures\chicken_texture.png" />
     <Resource Include="Textures\delete_texture.png" />
     <Resource Include="Textures\home_texture.png" />
     <Resource Include="Textures\kfc_texture.png" />
     <Resource Include="Textures\make_order_texture.png" />
     <Resource Include="Textures\mcdonalds_texture.png" />
+    <Resource Include="Textures\next_texture.png" />
     <Resource Include="Textures\order_history_texture.png" />
     <Resource Include="Textures\profile_texture.png" />
     <Resource Include="Textures\refresh_texture.png" />
