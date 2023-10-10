@@ -27,8 +27,10 @@ namespace Hold
         private void Start<T>() where T : ViewModelBase
         {
             var mainView = new MainWindow();
+
             var mainViewModel = Container.GetInstance<MainViewModel>();
             mainViewModel.ActiveViewModel = Container.GetInstance<T>();
+            mainViewModel.ActiveViewModel.InnerActiveViewModel = Container.GetInstance<PossibleOrdersViewModel>();
 
             mainView.DataContext = mainViewModel;
 
@@ -40,6 +42,8 @@ namespace Hold
             Container.RegisterSingleton<User>();
             Container.RegisterSingleton<IMessenger, MediatorMVVM>();
             Container.RegisterSingleton<IUserRepository, UserEFRepository>();
+            Container.RegisterSingleton<IRestaurantRepository, RestaurantEFRepository>();
+            Container.RegisterSingleton<IProductRepository, ProductEFRepository>();
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();

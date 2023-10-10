@@ -14,12 +14,12 @@
             <v:ProfileView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:PossibleOrdersViewModel}">
-            <v:PossibleOrdersView/>
-        </DataTemplate>
-
         <DataTemplate DataType="{x:Type vm:MakeOrderViewModel}">
             <v:MakeOrderView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:PossibleOrdersViewModel}">
+            <v:PossibleOrdersView/>
         </DataTemplate>
 
     </Application.Resources>

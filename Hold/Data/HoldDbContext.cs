@@ -9,6 +9,8 @@ public class HoldDbContext : DbContext
 {
     public DbSet<Country> Countries { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Restaurant> Restaurants { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -28,6 +30,8 @@ public class HoldDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new CountryConfiguration());
+        modelBuilder.ApplyConfiguration(new RestaurantConfiguration());
+        modelBuilder.ApplyConfiguration(new ProductConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

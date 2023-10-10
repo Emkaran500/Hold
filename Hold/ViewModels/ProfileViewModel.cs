@@ -1,7 +1,6 @@
 ﻿using Hold.Models;
 using Hold.Repositories.Base;
 using Hold.ViewModels.Base;
-using SimpleInjector;
 using System.Collections.ObjectModel;
 
 namespace Hold.ViewModels;

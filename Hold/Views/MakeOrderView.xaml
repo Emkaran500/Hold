@@ -3,30 +3,79 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Hold.Views"
+             xmlns:local="clr-namespace:Hold.Views" xmlns:viewmodels="clr-namespace:Hold.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MakeOrderViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="500" DataContext="{Binding InnerActiveViewModel}">
+             d:DesignHeight="400" d:DesignWidth="700" Background="AntiqueWhite">
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="NoAnimationButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+
     <Grid>
-        <Grid.Resources>
-            <ImageBrush x:Key="AddMcDonaldsButtonImageBrush" ImageSource="\Textures\mcdonalds_texture.png"/>
-            <ImageBrush x:Key="AddKfcButtonImageBrush" ImageSource="\Textures\kfc_texture.png"/>
-        </Grid.Resources>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0" ItemsSource="{Binding Restaurants}" Background="AntiqueWhite">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Button Command="{Binding RestaurantCommand}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ItemsControl ItemsSource="{Binding Restaurants}">
+            <ItemsControl.ItemTemplate>
+                <ItemContainerTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Grid.Row="0" Height="100" Width="100" Style="{StaticResource NoAnimationButtonStyle}" Background="{Binding TextureBrush}"/>
+                        <TextBlock Grid.Row="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </ItemContainerTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-        <ContentControl Grid.Column="1" Content="{Binding InnerActiveViewModel}" Margin="10">
-            
-        </ContentControl>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="LightSteelBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Margin="10 30 120 30"/>
+            </Grid>
+
+            <ContentControl Grid.Row="1" Content="{Binding InnerActiveViewModel}" Margin="10">
+
+            </ContentControl>
+        </Grid>
     </Grid>
 </UserControl>

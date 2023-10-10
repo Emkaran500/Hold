@@ -4,6 +4,7 @@ using Hold.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hold.Migrations
 {
     [DbContext(typeof(HoldDbContext))]
-    partial class HoldDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231010072811_Add Restaurants")]
+    partial class AddRestaurants
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,39 +41,6 @@ namespace Hold.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
-                });
-
-            modelBuilder.Entity("Hold.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool?>("LeftInStock")
-                        .HasColumnType("bit")
-                        .HasColumnName("Left in stock");
-
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ProductName")
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<int?>("RestaurantId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Texture")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Texture path");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RestaurantId");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Hold.Models.Restaurant", b =>
@@ -142,15 +112,6 @@ namespace Hold.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Hold.Models.Product", b =>
-                {
-                    b.HasOne("Hold.Models.Restaurant", "Restaurant")
-                        .WithMany("Products")
-                        .HasForeignKey("RestaurantId");
-
-                    b.Navigation("Restaurant");
-                });
-
             modelBuilder.Entity("Hold.Models.User", b =>
                 {
                     b.HasOne("Hold.Models.Country", "Country")
@@ -158,11 +119,6 @@ namespace Hold.Migrations
                         .HasForeignKey("CountryId");
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("Hold.Models.Restaurant", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

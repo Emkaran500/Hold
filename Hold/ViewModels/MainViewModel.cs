@@ -15,6 +15,8 @@ public class MainViewModel : ViewModelBase
         set => base.PropertyChangeMethod(out this.activeViewModel, value);
     }
 
+    
+
     private readonly IMessenger mediator;
 
     public MainViewModel(IMessenger messenger)
@@ -58,6 +60,15 @@ public class MainViewModel : ViewModelBase
             execute: () =>
             {
                 this.ActiveViewModel = App.Container.GetInstance<MakeOrderViewModel>();
+            },
+            canExecute: () => true
+        );
+    private CommandBase restaurantCommand;
+    public CommandBase RestaurantCommand => this.restaurantCommand ??= new CommandBase
+        (
+            execute: () =>
+            {
+                this.ActiveViewModel.InnerActiveViewModel = App.Container.GetInstance<PossibleOrdersViewModel>();
             },
             canExecute: () => true
         );

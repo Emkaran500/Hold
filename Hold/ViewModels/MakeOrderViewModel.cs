@@ -1,46 +1,33 @@
-﻿using Hold.Commands.Base;
-using Hold.Mediator.Base;
-using Hold.Messages;
+﻿using Hold.Models;
+using Hold.Repositories.Base;
 using Hold.ViewModels.Base;
+using System;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Hold.ViewModels;
 
 public class MakeOrderViewModel : ViewModelBase
 {
-    private ViewModelBase innerActiveViewModel;
+    private readonly IRestaurantRepository restaurantRepository;
+    public ObservableCollection<Restaurant> Restaurants { get; set; } = new ObservableCollection<Restaurant>();
 
-    public ViewModelBase InnerActiveViewModel
+    public MakeOrderViewModel(IRestaurantRepository restaurantRepository)
     {
-        get => innerActiveViewModel;
-        set => base.PropertyChangeMethod(out this.innerActiveViewModel, value);
+        this.restaurantRepository = restaurantRepository;
+
+        foreach (var restaurant in restaurantRepository.GetAll())
+        {
+            var enviroment = System.Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(enviroment).Parent.FullName;
+            projectDirectory = projectDirectory.Remove(projectDirectory.ToCharArray().Length - 4);
+
+            restaurant.TextureBrush.ImageSource = new BitmapImage(new Uri($"{projectDirectory + restaurant.Texture}", UriKind.Absolute));
+            this.Restaurants.Add(restaurant);
+        }
     }
 
-    private readonly IMessenger mediator;
 
-    public MakeOrderViewModel(IMessenger messenger)
-    {
-        this.mediator = messenger;
-        this.InnerActiveViewModel = new PossibleOrdersViewModel();
-
-        this.mediator.Subscribe<ChangeWindowMessage>
-        (
-            (message) =>
-            {
-                if (message is ChangeWindowMessage changeWindowMessage)
-                {
-                    this.InnerActiveViewModel = changeWindowMessage.DestinationViewModel;
-                }
-            }
-        );
-    }
-
-    private CommandBase restaurantCommand;
-    public CommandBase RestaurantCommand => this.restaurantCommand ??= new CommandBase
-        (
-            execute: () =>
-            {
-                this.InnerActiveViewModel = App.Container.GetInstance<PossibleOrdersViewModel>();
-            },
-            canExecute: () => true
-        );
 }

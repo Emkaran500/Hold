@@ -4,6 +4,7 @@ using Hold.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hold.Migrations
 {
     [DbContext(typeof(HoldDbContext))]
-    partial class HoldDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231010075436_Add Products")]
+    partial class AddProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,10 +64,6 @@ namespace Hold.Migrations
 
                     b.Property<int?>("RestaurantId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Texture")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Texture path");
 
                     b.HasKey("Id");
 
