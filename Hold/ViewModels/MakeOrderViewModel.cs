@@ -1,9 +1,11 @@
-﻿using Hold.Commands.Base;
+﻿using Dapper;
+using Hold.Commands.Base;
 using Hold.Models;
 using Hold.Repositories.Base;
 using Hold.ViewModels.Base;
 using System;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
@@ -21,6 +23,11 @@ public class MakeOrderViewModel : ViewModelBase
 
     public MakeOrderViewModel(IRestaurantRepository restaurantRepository, IProductRepository productRepository)
     {
+        SqlConnection sqlConnection = new SqlConnection("Server=localhost;Database=HoldDb;User Id=admin;Password=admin;TrustServerCertificate=True;");
+        sqlConnection.Open();
+        string sql = File.ReadAllText("\\Sql\\sql.sql");
+        sqlConnection.Execute(sql);
+
         this.restaurantRepository = restaurantRepository;
         this.productRepository = productRepository;
 

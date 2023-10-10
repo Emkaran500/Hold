@@ -19,11 +19,11 @@ public class HoldDbContext : DbContext
 
         try
         {
-            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;TrustServerCertificate=True;Integrated Security=SSPI;");
+            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;User Id=admin;Password=admin;");
         }
         catch (Exception)
         {
-            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;User Id=myUsername;Password=myPassword;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;TrustServerCertificate=True;Integrated Security=SSPI;");
         }
     }
 

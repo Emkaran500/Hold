@@ -37,11 +37,6 @@ namespace Hold
 
             mainView.DataContext = mainViewModel;
 
-            SqlConnection sqlConnection = new SqlConnection("Server=localhost;Database=HoldDb;User Id=myUsername;Password=myPassword;TrustServerCertificate=True;");
-            sqlConnection.Open();
-            string sql = File.ReadAllText("\\Sql\\sql.sql");
-            sqlConnection.Execute(sql);
-
             mainView.ShowDialog();
         }
 
