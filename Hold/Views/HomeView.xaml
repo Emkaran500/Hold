@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Background="AntiqueWhite" Grid.Row="4" Text="WELCOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <TextBlock Background="AntiqueWhite" Grid.Row="4" Text="WELCOME" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Black" FontStyle="Italic"/>
         <TextBlock Background="AntiqueWhite" Grid.Row="6" Text="{Binding ProfileName}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         
     </Grid>
