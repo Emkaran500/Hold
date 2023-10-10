@@ -70,7 +70,7 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Style="{StaticResource NoAnimationButtonStyle}" Background="{StaticResource AddBasketButtonImageBrush}" Margin="0 30 35 0"/>
+                <Button Command="{Binding BasketCommand}" Style="{StaticResource NoAnimationButtonStyle}" Background="{StaticResource AddBasketButtonImageBrush}" Margin="0 30 35 0"/>
             </Grid>
         </Grid>
         <ContentControl Grid.Column="1"  Content="{Binding ActiveViewModel}" Margin="10">

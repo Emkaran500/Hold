@@ -5,5 +5,6 @@ namespace Hold.Repositories.Base;
 
 public interface IProductRepository
 {
-    public IEnumerable<Product> GetAll();
+    public IEnumerable<Product> GetAllForRestaurant(int id);
+    public Product GetByName(string name);
 }

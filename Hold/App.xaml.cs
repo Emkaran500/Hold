@@ -30,7 +30,6 @@ namespace Hold
 
             var mainViewModel = Container.GetInstance<MainViewModel>();
             mainViewModel.ActiveViewModel = Container.GetInstance<T>();
-            mainViewModel.ActiveViewModel.InnerActiveViewModel = Container.GetInstance<PossibleOrdersViewModel>();
 
             mainView.DataContext = mainViewModel;
 
@@ -40,6 +39,7 @@ namespace Hold
         private void RegisterContainer()
         {
             Container.RegisterSingleton<User>();
+            Container.RegisterSingleton<Basket>();
             Container.RegisterSingleton<IMessenger, MediatorMVVM>();
             Container.RegisterSingleton<IUserRepository, UserEFRepository>();
             Container.RegisterSingleton<IRestaurantRepository, RestaurantEFRepository>();
@@ -48,8 +48,8 @@ namespace Hold
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();
             Container.RegisterSingleton<ProfileViewModel>();
-            Container.RegisterSingleton<PossibleOrdersViewModel>();
             Container.RegisterSingleton<MakeOrderViewModel>();
+            Container.RegisterSingleton<BasketViewModel>();
 
             Container.Verify();
         }

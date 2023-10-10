@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -17,14 +18,24 @@ public class Restaurant
 
     public string? Texture { get; set; }
     [NotMapped]
-    public ImageBrush TextureBrush { get; set; } = new ImageBrush();
+    public BitmapImage TextureBrush { get; set; } = new BitmapImage();
     public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>();
 
     public Restaurant()
     {
         IProductRepository productRepository = new ProductEFRepository();
+        Image image = new Image();
+        foreach (var product in productRepository.GetAllForRestaurant(default))
+        {
+            this.Products.Add(product);
+        }
+    }
 
-        foreach (var product in productRepository.GetAll())
+    public Restaurant(Restaurant restaurant)
+    {
+        IProductRepository productRepository = new ProductEFRepository();
+
+        foreach (var product in productRepository.GetAllForRestaurant(restaurant.Id))
         {
             this.Products.Add(product);
         }

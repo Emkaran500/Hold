@@ -50,7 +50,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         
-                        <Button Grid.Row="0" Height="100" Width="100" Style="{StaticResource NoAnimationButtonStyle}" Background="{Binding TextureBrush}"/>
+                        <Image Grid.Row="0" Height="100" Width="100" Source="{Binding TextureBrush}"/>
                         <TextBlock Grid.Row="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Grid>
                 </ItemContainerTemplate>
@@ -65,17 +65,33 @@
 
             <Grid Grid.Row="0" Background="LightSteelBlue">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Margin="10 30 120 30"/>
+                <Button Grid.Column="4" Margin="30" Command="{Binding RestaurantCommand}"/>
             </Grid>
+            
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Products}">
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <ScrollViewer CanContentScroll="false">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
 
-            <ContentControl Grid.Row="1" Content="{Binding InnerActiveViewModel}" Margin="10">
-
-            </ContentControl>
+                <ItemsControl.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Top" Width="50" Height="50" Grid.Column="{Binding Id}" Content="{Binding ProductName}" Grid.Row="0" Style="{StaticResource NoAnimationButtonStyle}" Background="{Binding TextureBrush}" Click="AddProductClick"/>
+                        </DockPanel>
+                    </ItemContainerTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </Grid>
 </UserControl>

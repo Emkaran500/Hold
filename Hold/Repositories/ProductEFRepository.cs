@@ -14,8 +14,13 @@ public class ProductEFRepository : IProductRepository
         this.dbContext = new HoldDbContext();
     }
 
-    public IEnumerable<Product> GetAll()
+    public IEnumerable<Product> GetAllForRestaurant(int id)
     {
-        return this.dbContext.Products.ToList();
+        return this.dbContext.Products.Where(p => p.RestaurantId == id).ToList();
+    }
+
+    public Product GetByName(string name)
+    {
+        return this.dbContext.Products.Where(p => p.ProductName == name).First();
     }
 }

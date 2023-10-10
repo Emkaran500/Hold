@@ -18,8 +18,8 @@
             <v:MakeOrderView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:PossibleOrdersViewModel}">
-            <v:PossibleOrdersView/>
+        <DataTemplate DataType="{x:Type vm:BasketViewModel}">
+            <v:BasketView/>
         </DataTemplate>
 
     </Application.Resources>

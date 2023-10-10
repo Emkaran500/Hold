@@ -19,7 +19,7 @@ public class HomeViewModel : ViewModelBase
         User user = App.Container.GetInstance<User>();
         user.Id = 1;
         user.ProfileName = "Emil";
-        user.Balance = 0;
+        user.Balance = 100;
         user.ProfilePhoneNumber = "+994517608842";
         user.Email = "emkaran_500@mail.ru";
         user.Country = country;

@@ -63,12 +63,12 @@ public class MainViewModel : ViewModelBase
             },
             canExecute: () => true
         );
-    private CommandBase restaurantCommand;
-    public CommandBase RestaurantCommand => this.restaurantCommand ??= new CommandBase
+    private CommandBase basketCommand;
+    public CommandBase BasketCommand => this.basketCommand ??= new CommandBase
         (
             execute: () =>
             {
-                this.ActiveViewModel.InnerActiveViewModel = App.Container.GetInstance<PossibleOrdersViewModel>();
+                this.ActiveViewModel = App.Container.GetInstance<BasketViewModel>();
             },
             canExecute: () => true
         );
