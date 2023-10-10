@@ -8,7 +8,7 @@ namespace Hold.ViewModels;
 public class YourOrdersViewModel : ViewModelBase
 {
     private readonly IOrderRepository orderRepository;
-    ObservableCollection<Order> Orders { get; set; } = new ObservableCollection<Order>();
+    public ObservableCollection<Order> Orders { get; set; } = new ObservableCollection<Order>();
 
     public YourOrdersViewModel(IOrderRepository orderRepository)
     {

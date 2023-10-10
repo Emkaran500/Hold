@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Hold.Views"
+             xmlns:local="clr-namespace:Hold.Views" xmlns:viewmodels="clr-namespace:Hold.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:YourOrdersViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="500">
     <Grid>
@@ -11,16 +11,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <UniformGrid Columns="2">
-                        <TextBlock FontSize="22" Text="Name:" Background="AliceBlue"/>
-                        <TextBlock FontSize="22" Text="{Binding ProfileName}" Background="AliceBlue"/>
-                        <TextBlock FontSize="22" Text="Phone:" Background="LightSkyBlue"/>
-                        <TextBlock FontSize="22" Text="{Binding ProfilePhoneNumber}" Background="LightSkyBlue"/>
-                        <TextBlock FontSize="22" Text="Balance($):" Background="AliceBlue"/>
-                        <TextBlock FontSize="22" Text="{Binding Balance}" Background="AliceBlue"/>
-                        <TextBlock FontSize="22" Text="Email:" Background="LightSkyBlue"/>
-                        <TextBlock FontSize="22" Text="{Binding Email}" Background="LightSkyBlue"/>
-                        <TextBlock FontSize="22" Text="Country:" Background="AliceBlue"/>
-                        <TextBlock FontSize="22" Text="{Binding Country}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="#:" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Id}" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="Sum($):" Background="AliceBlue"/>
+                        <TextBlock FontSize="22" Text="{Binding Sum}" Background="AliceBlue"/>
                     </UniformGrid>
                 </DataTemplate>
             </ListView.ItemTemplate>
