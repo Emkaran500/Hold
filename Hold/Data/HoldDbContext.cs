@@ -17,14 +17,7 @@ public class HoldDbContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        try
-        {
-            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;User Id=admin;Password=admin;");
-        }
-        catch (Exception)
-        {
-            optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;TrustServerCertificate=True;Integrated Security=SSPI;");
-        }
+        optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=HoldDb;User Id=admin;Password=admin;TrustServerCertificate=True;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
